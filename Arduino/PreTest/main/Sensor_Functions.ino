@@ -5,32 +5,17 @@ int get_distance() {
       Returns an integer
   */
   int readings[5];
+  int num = 5;
   int sum = 0;
-  for (int reading = 0; reading < 5; reading += 1) {
-    digitalWrite(trigPin, LOW);
-    delayMicroseconds(2);
-    digitalWrite(trigPin, HIGH);
-    delayMicroseconds(10);
-    digitalWrite(trigPin, LOW);
-    int duration = pulseIn(echoPin, HIGH);
-    int distance = duration / 58.2;
-    readings[reading] = distance;
-    sum += distance;
-  }
-  for (int reading = 0; reading < 5; reading += 1) {
-    if (reading - (sum / 5 > 20)) {
-      {
-        for (int j = reading; j < (4); j++)
-        {
-          readings[j] = readings[j + 1];
-        }
-        break;
+  digitalWrite(trigPin, LOW);
+  delayMicroseconds(2);
+  digitalWrite(trigPin, HIGH);
+  delayMicroseconds(10);
+  digitalWrite(trigPin, LOW);
+  int duration = pulseIn(echoPin, HIGH);
+  int distance = duration / 58.2;
+  return distance;
 
-      }
-    }
-  }
-  return sum/5;
-  
 }
 
 
@@ -58,9 +43,11 @@ bool is_mag () {
     y |= Wire.read(); //Y lsb
   }
 
-  if (x>-800){//assuming sensing in only x direction
+  if (x > -800) { //assuming sensing in only x direction
     return true;
+  }
+  else {
+    return false;
   }
 
 }
-
