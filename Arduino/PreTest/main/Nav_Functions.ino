@@ -13,6 +13,9 @@ void strip(char dir) {
       dc_go(motor2, motor4, dir);
       delay(ultraSonicDelay);
     }
+    else{
+      delay(ultraSonicDelay);
+    }
     currentTravelTime += ultraSonicDelay;
   }
   dc_stop(motor2, motor4);
@@ -27,6 +30,7 @@ void dump() {
   step_close();
   dc_spin(motor2, motor4);
   dc_spin(motor2, motor4);
+  targetCollected = false;
 }
 
 void collect() {  //collects and returns to its place
@@ -34,5 +38,6 @@ void collect() {  //collects and returns to its place
   dc_move(motor1, motor3, FORWARD, nextLineTime);
   step_close();
   dc_move(motor1, motor3, BACKWARD, nextLineTime);
-
+  targetCollected = true;
 }
+

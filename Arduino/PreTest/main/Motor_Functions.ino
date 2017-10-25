@@ -11,8 +11,7 @@ void dc_move(AF_DCMotor motor1, AF_DCMotor motor2, char dir, int runtime) {
         dir (char): direction FORWARD or BACKWARD
         runtime (ms)
   */
-  motor1.setSpeed(motorSpeed);
-  motor2.setSpeed(motorSpeed);
+  
   motor1.run(dir);
   motor2.run(dir);
   delay(runtime);       
@@ -48,3 +47,4 @@ void dc_spin(AF_DCMotor motor1, AF_DCMotor motor2) {
   motor1.run(RELEASE);
   motor2.run(RELEASE);
 }
+

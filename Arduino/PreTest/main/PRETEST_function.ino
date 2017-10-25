@@ -9,9 +9,11 @@ void pretest(){
   
   //turn left
   dc_spin(motor2, motor4);
+  dc_spin(motor2, motor4);
   
   //turn right
-  dc_spin(motor4, motor2); //reversing the two motors should reverse directions
+  dc_spin(motor4, motor2 ); //reversing the two motors should reverse directions
+  dc_spin(motor4, motor2 );
   
   //stop
   dc_stop(motor1, motor3);
@@ -36,4 +38,5 @@ void pretest(){
   dump();
   
 }
+
 
