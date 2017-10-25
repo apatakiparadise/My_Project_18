@@ -58,3 +58,29 @@ void backward(){//one tooth backward
   delay(delaytime);
 }
 
+
+void step_open() {
+  /* Opens the door. We need to experimentally calculate how many steps it takes to open/close the door
+     Once we have that, numberOfSteps could probably be stated in the function below, since it's always the same.
+  */
+  int numberOfSteps = doorSteps;
+  step_OFF();         //turning all coils off
+  while (numberOfSteps > 0) {
+    forward();        //going forward
+    numberOfSteps -- ;
+  }
+}
+
+void step_close() {
+
+  /* Closes the door
+     Same as step_open(), but with backward, instead of forward. Could probably make this one function to be more efficient
+  */
+  int numberOfSteps = doorSteps;
+  step_OFF();         //turning all coils off
+  while (numberOfSteps > 0) {
+    backward();        //going forward
+    numberOfSteps -- ;
+  }
+}
+
