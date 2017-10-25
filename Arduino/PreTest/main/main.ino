@@ -84,7 +84,9 @@ void loop() {
   strip(FORWARD);//left first, then right
   strip(BACKWARD); //make sure that we end up on the right hand edge, so that we don't get stuck around the corner.
   if (targetCollected = true) {
-    dc_move(motor1, motor3, BACKWARD, linesDone * nextLineTime);
+    dc_move(motor1, motor3, BACKWARD, linesDone * nextLineTime); //back into the corner
+    dc_move(motor1, motor3, FORWARD, 500);  //disengage from corner to enable spinning
+    dc_move(motor2, motor4, FORWARD, 500);
     dump(); //dump should include spinning, opening door, reversing, closing door, then spinning again
     dc_move(motor1, motor3, FORWARD, linesDone * nextLineTime);
   }
@@ -96,6 +98,7 @@ void loop() {
       dc_spin(motor1, motor3);
     }
   }
+  //advance to the next line
   dc_move(motor2, motor4, FORWARD, nextLineTime);
 
 
