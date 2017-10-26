@@ -1,5 +1,5 @@
-#include <StepperAK.h>
-#include <AFMotor.h>
+#include <StepperAK.h> //Stepper Arduino Kit Library http://makecourse.weebly.com/week8segment2.html
+#include <AFMotor.h> //Adafruit MotorShield v1 https://learn.adafruit.com/adafruit-motor-shield/downloadsi
 #include <Wire.h> //I2C Arduino Library
 
 #define address 0x1E //0011110b, I2C 7bit address of HMC5883
@@ -7,14 +7,6 @@
 AF_DCMotor motor1(2);//forward/backward      grey
 AF_DCMotor motor2(1);//sideways              yellow
 AF_DCMotor motor3(4);//forward/backward      white
-AF_DCMotor motor4(3);//sideways              purple
-
-//stepper pins
-#define pin1  9  //blue     these are the Arduino pins that we use to activate coils 1-4 of the stepper motor
-#define pin2  10 //green
-#define pin3  13 //yellow
-#define pin4  2  //brown
-
 #define delaytime 20   // (ms) controls the stepper motor delaytime.
 
 
